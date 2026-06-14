@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TalentC Recovery APK</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+        color: white;
+        min-height: 100vh;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header {
+        width: 100%;
+        max-width: 600px;
+        height: 90px;
+        background: rgba(20, 20, 30, 0.95);
+        border-radius: 0 0 25px 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 40px;
+        border-bottom: 3px solid #00d4ff;
+        box-shadow: 0 8px 32px rgba(0, 212, 255, 0.3);
+        backdrop-filter: blur(10px);
+    }
+
+    .header h1 {
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+
+    .buttons-container {
+        width: 100%;
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        margin-bottom: 30px;
+    }
+
+    .recovery-btn {
+        width: 100%;
+        height: 70px;
+        background: rgba(30, 30, 45, 0.8);
+        border: 2px solid rgba(0, 212, 255, 0.4);
+        border-radius: 18px;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .recovery-btn:hover {
+        background: rgba(0, 212, 255, 0.15);
+        border-color: #00d4ff;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
+    }
+
+    .info-btn {
+        border-color: rgba(0, 255, 150, 0.4);
+    }
+    .info-btn:hover {
+        background: rgba(0, 255, 150, 0.15);
+        border-color: #00ff96;
+        box-shadow: 0 8px 20px rgba(0, 255, 150, 0.4);
+    }
+
+    .webview-container {
+        width: 100%;
+        max-width: 900px;
+        background: rgba(20, 20, 30, 0.8);
+        border-radius: 20px;
+        padding: 20px;
+        border: 2px solid rgba(0, 212, 255, 0.2);
+    }
+
+    .webview-title {
+        font-size: 16px;
+        color: #00d4ff;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    iframe {
+        width: 100%;
+        height: 500px;
+        border: none;
+        border-radius: 12px;
+        background: #000;
+    }
+
+    @media (max-width: 600px) {
+        .header h1 { font-size: 18px; }
+        iframe { height: 400px; }
+    }
+</style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>🔐 TALENTC RECOVERY APK</h1>
+    </div>
+
+    <div class="buttons-container">
+        <button class="recovery-btn" onclick="loadLink('https://faq.whatsapp.com/465883178708358')">
+            📱 WhatsApp Recovery
+        </button>
+        
+        <button class="recovery-btn" onclick="loadLink('https://m.facebook.com/hacked')">
+            📘 Facebook Recovery
+        </button>
+        
+        <button class="recovery-btn" onclick="loadLink('https://www.instagram.com/accounts/password/reset')">
+            📸 Instagram Recovery
+        </button>
+
+        <button class="recovery-btn info-btn" onclick="showInfo()">
+            ℹ️ My Information
+        </button>
+    </div>
+
+    <div class="webview-container">
+        <div class="webview-title">Website View</div>
+        <iframe id="webview" src="about:blank"></iframe>
+    </div>
+
+<script>
+    function loadLink(url) {
+        // Update title
+        document.querySelector('.webview-title').textContent = 'Loading...';
+        document.getElementById('webview').src = url;
+        
+        // Reset title after load
+        document.getElementById('webview').onload = function() {
+            document.querySelector('.webview-title').textContent = 'Website View';
+        }
+    }
+
+    function showInfo() {
+        const infoHTML = `
+            <div style="color:white; padding:40px; text-align:center; font-family:Segoe UI;">
+                <h1 style="color:#00ff96; margin-bottom:30px;">ℹ️ Developer Info</h1>
+                <div style="background:rgba(30,30,45,0.9); padding:30px; border-radius:15px; border:2px solid #00ff96; max-width:500px; margin:auto;">
+                    <h2 style="margin-bottom:20px;">Developer: TalentC</h2>
+                    <p style="font-size:18px; margin-bottom:25px;">Join our WhatsApp Channel for updates</p>
+                    <a href="https://whatsapp.com/channel/0029Vb8HTs5HFxPAW8jif23V" 
+                       target="_blank" 
+                       style="display:inline-block; padding:15px 30px; background:#25D366; color:white; text-decoration:none; border-radius:10px; font-weight:bold; font-size:16px;">
+                        📱 Open WhatsApp Channel
+                    </a>
+                </div>
+            </div>
+        `;
+        document.getElementById('webview').srcdoc = infoHTML;
+        document.querySelector('.webview-title').textContent = 'Developer Info';
+    }
+
+    window.onload = function() {
+        document.getElementById('webview').src = 'about:blank';
+    }
+</script>
+
+</body>
+</html>
